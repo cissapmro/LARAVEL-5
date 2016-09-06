@@ -1,0 +1,37 @@
+/* Styles*/
+
+body {
+  padding-top: 51px;
+  background-color: #fff;
+}
+
+/*NÚMERO SUPERIOR*/
+.badge { 
+    margin-top: -5px;
+    padding: 3px 6px;
+    vertical-align: top;
+    background: #D9534F !important;
+}
+ 
+/*MENU LATERAL COM LIST*/
+.list-group-item:first-child {
+  border: none;
+  border-bottom: 2px solid #eee; 
+}
+a.list-group-item {
+  color: #02465d;
+  background-color: #fff;
+  border: none;
+  border-bottom: 2px solid #eee;    
+}
+a.list-group-item:hover {
+  color: #fff;
+  background-color: #02465d;
+  border: none;
+}
+/* BEM-VINDO */
+.welcome {
+  text-shadow: 5px 5px 5px #696969;
+  color: #02465d;
+  font-size: 30px;
+}
