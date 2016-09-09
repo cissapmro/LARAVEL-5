@@ -1,6 +1,4 @@
-
-
-@extends('template');
+@extends('template')
 @section('content')
 <div class="container">
 <div class="painel">
@@ -12,7 +10,7 @@
             </div>
         </div>
     <div class="panel-heading">
-       <button type="button" class="btn btn-info" id="add">Adicionar Categorias</button>      
+       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal">Adicionar Categorias</button>
     </div>  
     <div class="panel-body">
     
@@ -42,6 +40,8 @@
             </table>
             </div>
         </div>
+    </div>
     @endsection
 
+@include('categories.modal')
 
