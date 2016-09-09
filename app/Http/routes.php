@@ -11,6 +11,13 @@
 |
 */
 
+//Route::group(['prefix'=>'produtos'], function(){
+  //  Route::get('index',['as'=>'produtos.index','uses'=>'ProdutosController@index']);    
+//});
+
+Route::get('index', 'ProdutosController@index');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -38,13 +45,13 @@ Route::put('categories/{id}/update',['as'=>'categories.update','uses'=>'Categori
 //});
     
 //Route:get('category/{id}', function($id) {
-  // $category = new App\Category();
+  // $category = new CodeCommerce\Category();
   // $c = $category->find($id);
    //return $c->name;
     
 //});   
 //INJETANDO MODEL 
-//Route:get('category/{category}', function(App\Category $category) {
+//Route:get('category/{category}', function(CodeCommerce\Category $category) {
   // return $category->name;
   //  dd($category);
 //});   

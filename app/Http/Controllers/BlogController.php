@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace CodeCommerce\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Category;
+use CodeCommerce\Http\Requests;
+use CodeCommerce\Http\Controllers\Controller;
+use CodeCommerce\Category;
 
 class BlogController extends Controller
 {

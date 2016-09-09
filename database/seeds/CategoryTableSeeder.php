@@ -2,7 +2,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
-use Faker\Factory as Faker;
+//use Faker\Factory as Faker;
 
 class CategoryTableSeeder extends Seeder {
     //put your code here
@@ -11,15 +11,21 @@ class CategoryTableSeeder extends Seeder {
             
         DB::table('categories')->truncate();
         
-        $faker = Faker::create();
+        //$faker = Faker::create();
         
-        foreach(range(1,15) as $i){
+        //foreach(range(1,15) as $i){
             
-        Category::create([
-           'name'=> $faker->word(), 
-           'description' => $faker->sentence()                
-        ]); 
-        }
+        //Category::create([
+          // 'name'=> $faker->word(), 
+          // 'description' => $faker->sentence()                
+        //]); 
+        //}
+        factory('App\Category')->create([
+           'name'=> 'Informática', 
+           'description' => 'Computador'
+           
+        ]);
+        factory('App\Category', 3)->create();
         
 }
 }
