@@ -30,22 +30,22 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Blog da Cissa</span>
+            <span class="sr-only">CodeCommerce</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-             <a class="navbar-brand" rel="home" href="#" title="logo da Cissa">  <img style="margin-top: -15px; width: 50px; height: 50px;" src="{{ asset('/img/cissa.JPG') }}" class="img-circle pull-left" alt="foto do usuario" /> Blog da Cissa</a>  
+             <a class="navbar-brand" rel="home" href="#" title="logo da Cissa">  <img style="margin-top: -15px; width: 50px; height: 50px;" src="{{ asset('/img/cissa.JPG') }}" class="img-circle pull-left" alt="foto do usuario" />  CodeCommerce</a>  
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home <span class="sr-only"></span></a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notícias <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatórios <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="posts.blade.php">Posts</a></li>
+                <li><a href="categoria.blade.php">Categoria</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Laravel</a></li>
+                <li><a href="produto.blade.php">Produto</a></li>
               </ul>
             </li>
           </ul>

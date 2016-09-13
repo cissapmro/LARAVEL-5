@@ -10,13 +10,19 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+//Route::group(['prefix'=>'produtos'], function(){
+  //  Route::get('index',['as'=>'produtos.index','uses'=>'ProdutosController@index']);    
+//});
+
+Route::get('index', 'ProdutosController@index');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('blog/{nome}', 'BlogController@index');
 
-Route::get('admin/categories', 'AdminCategoriesController@index');
-Route::get('admin/products', 'AdminProductsController@index');
 
 //AGRUPAR ROTAS
 //
@@ -61,10 +67,10 @@ Route::get('admin/products', 'AdminProductsController@index');
 //PASSAR ID//
  * 
  */
-//Route::get('exemplo/{id}', function($id){
-  // return "oiii $id";
+Route::get('exemplo/{id}', function($id){
+   return "oiii $id";
    
-//});
+});
 /************************************
  * //FORÇAR PADRÃO**/
 //Route::pattern("id", "[0-9]+");
