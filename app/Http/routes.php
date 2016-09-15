@@ -13,109 +13,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('blog/{nome}', 'BlogController@index');
+//Route::get('blog/{nome}', 'BlogController@index');
 
-Route::get('admin/categories', 'AdminCategoriesController@index');
-Route::get('admin/products', 'AdminProductsController@index');
+//FORÇAR PARA QUE O PARÂMETRO ID SEJA NUMÉRICO//
+//Route::pattern('id', '[0-9]+');
 
-//AGRUPAR ROTAS
-//
-//Route::group(['prefix'=>'admin'], function() {
-      //     Route::group(['namespace'=>'admin'], function()
-//     Route::group([middleware'=>'admin|exemplo'], function()
-
- //   Route::get('produtos', function(){
-   //      return "exemplo";
-  //  });
-   
-//});
-    
-//Route:get('category/{id}', function($id) {
-  // $category = new CodeCommerce\Category();
-  // $c = $category->find($id);
-   //return $c->name;
-    
-//});   
-//INJETANDO MODEL 
-//Route:get('category/{category}', function(CodeCommerce\Category $category) {
-  // return $category->name;
-  //  dd($category);
-//});   
-
-
-
-//Route::get('exemplo', 'BlogController@exemplo');
-
-//USADO PARA GET E POST
-//Route::math([‘get’,’post’], ‘/exemplo2’, function(){
-	//return “oi”;
-//});
-//************************************
-//// QUALQUER TIPO DE HTTP (get, post, delete, put...
-//Route::any(‘/exemplo2’), function(){ 
-	//return “oi”;
-//}
-/************************************
-//PASSANDO PARÂMETROS NA ROTA
-//
-//PASSAR ID//
- * 
- */
-//Route::get('exemplo/{id}', function($id){
-  // return "oiii $id";
-   
-//});
-/************************************
- * //FORÇAR PADRÃO**/
-//Route::pattern("id", "[0-9]+");
-//Route::get('exemplo/{id?}', function($id = 123){ 
- 
- //   if($id)
-  //    return "$id";
-   //   return "não tem id"; 
-    //}); 
-    
-/*****ROTA DINÂMICA***/
-  //  Route::get("alterado", ['as'=> 'exemplo', function(){
-        
-   //     Route::get("exemplo", ['as'=> 'exemplo', function(){
-     //   echo Route::currentRouteName(); //rota atual
-       // return "exemplo";
-   // }]);
-    
-   // redirect()->route('exemplo');
-  //  echo route('blog');die;
-
-    
-//SE TIVER ID OU NÃO
-//Route::get('exemplo/{id?}', function($id = null){ //se tiver id ou não
- 
-  //  if($id)
-    //    return "$id";
-    //    return "não tem id";
-   // });
- // Route::get(‘user/{id}, function(){
-//	return “oi  $id”;
-//} 
-//************************************
-//CASO NÃO TEM ID VAI PASSAR CISSA
-//Route::get('exemplo/{id?}', function($id = "cissa"){ 
- 
-   // if($id)
-    //  return "$id";
-    //  return "não tem id";
-  // });
-//************************************
- //ID SOMENTE COM NÚMEROS OU LETRAS**/
-
-//Route::get('exemplo/{id?}', function($id = 123){ 
- 
-  //  if($id)
-   //   return "$id";
-   //   return "não tem id";
-  // })->where("id", "[0-9]+"); 
-    //})->where("id", "[A-Za-z]+"); 
-
+//ROTAS AGRUPADAS//
+Route::group(['prefix'=>'admin'], function() {
+Route::get('categories', ['as'=>'admin.categoria.index', 'uses'=> 'AdminCategoriesController@index']);
+Route::get('products', ['as'=>'admin.produto.index', 'uses'=>'AdminProductsController@index']);
+});
 
 
 
