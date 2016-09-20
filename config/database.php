@@ -67,6 +67,7 @@ return [
         'pgsql' => [
             'driver'   => 'pgsql',
             'host'     => env('DB_HOST', 'localhost'),
+           // 'port'     => env('DB_PORT', 5432), //USADO PARA O BANCO 2.77
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),

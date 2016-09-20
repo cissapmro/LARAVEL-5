@@ -20,8 +20,18 @@ Route::get('/', function () {
 
 //ROTAS AGRUPADAS//
 Route::group(['prefix'=>'admin'], function() {
-Route::get('categories', ['as'=>'admin.categoria.index', 'uses'=> 'AdminCategoriesController@index']);
-Route::get('products', ['as'=>'admin.produto.index', 'uses'=>'AdminProductsController@index']);
+//Categoria    
+Route::get('categories', ['as'=>'admin.categoria.index', 'uses'=> 'AdminCategoriesController@index']); //crud categoria
+Route::get('create', ['as'=>'admin.categoria.create', 'uses'=>'AdminCategoriesController@create']); //formulário create
+Route::post('salvar', ['as'=>'admin.categoria.salvar', 'uses'=>'AdminCategoriesController@salvar']); //gravar no banco
+Route::get('deletar/{id}', ['as'=>'admin.categoria.deletar', 'uses'=>'AdminCategoriesController@deletar']); //deletar no banco
+Route::get('editar/{id}', ['as'=>'admin.categoria.editar', 'uses'=>'AdminCategoriesController@editar']); //deletar no banco
+Route::post('update/{id}', ['as'=>'admin.categoria.update', 'uses'=>'AdminCategoriesController@update']); //alterar no banco
+//Produto
+Route::get('products', ['as'=>'admin.produto.index', 'uses'=>'AdminProductsController@index']);//crud produto
+
+
+
 });
 
 

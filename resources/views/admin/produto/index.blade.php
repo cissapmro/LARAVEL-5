@@ -19,6 +19,8 @@
                         <th >Nome</th>
                         <th >Descrição</th>
                         <th >Price</th>
+                        <th >Destaque</th>
+                        <th >Recomendar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -28,6 +30,8 @@
                             <td>{{ $produto->name }}</td>
                             <td>{{ $produto->description }}</td>
                             <td>{{ $produto->price }}</td>
+                            <td>{{ $produto->featured }}</td>
+                            <td>{{ $produto->recommend }}</td>
                             <td>
                         </tr>
                        @endforeach
