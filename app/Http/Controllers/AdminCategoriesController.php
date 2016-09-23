@@ -28,12 +28,13 @@ class AdminCategoriesController extends Controller
     }
     //GRAVAR DADOS NO BANCO//
    // public function store(Request $request){
-        public function salvar(Requests\CategoryRequest $request){ //usando a request customizada para validar os campos
+        public function salvar(Requests\CategoryRequest $request){ 
         $input = $request->all();
         $categoria = $this->categoria->fill($input);
         $categoria->save();
         return redirect()->route('admin.categoria.index');
     }
+    
     //DELETAR DADOS
     public function deletar($id){
         $this->categoria->find($id)->delete();

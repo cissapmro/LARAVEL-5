@@ -27,8 +27,7 @@ class AddCampos extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
              
-            $table->removeColumn('created_at');
-             $table->removeColumn('updated_at');
+            
 
         });
     }

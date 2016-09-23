@@ -1,14 +1,15 @@
 
-@extends('template')
-@section('content')
-
- <div class="painel">
-        <div class="page-header">
-            <div class="text-info">
-                <h4 class="text-info">
-                    <i class="fa fa-folder-open fa-2x"></i> Editar Categoria</h4>
-            </div>
-        </div>
+ <div class="modal fade" id="edite" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+     <div class="modal-dialog">
+             
+        <div class="modal-content">
+            <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                <div>
+                     <h4 class="text-info"><i class="fa fa-pencil fa-3x"></i>Editar {{ $categoria->name }}</h4>
+                </div>
+           </div>
+ <div id="conteudoModal" class="modal-body">
              
       <!--  {{ print_r($errors)}}-->
       @if($errors->any())
@@ -42,12 +43,12 @@
  </div>
              <div class="modal-footer">
  
-                 {!! Form::submit('Salvar', ['class'=>'btn btn-primary']) !!}
+                 {!! Form::submit('Salvar categoria', ['class'=>'btn btn-primary']) !!}
  
                  {!! Form::close() !!}
-               <a id="add" href="{{ route('admin.categoria.index') }}" <button class="btn btn-default" type="submit" name="fechar">Fechar</button></a><br />
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
              </div>
          </div>
      </div>
  </div>
-  @endsection
+ 

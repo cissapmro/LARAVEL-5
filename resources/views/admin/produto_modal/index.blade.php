@@ -4,10 +4,10 @@
 
 <div class="painel">
     <div class="panel-header">     
-              <a id="add" href="{{ route('admin.produto.createProduto') }}" <button class="btn btn-info" type="submit" name="visualizar">Adicionar Produto</button></a><br />
+               <button type="submit" class="btn fa-btn-color" data-toggle="modal" data-target="#modal"><i class="fa fa-folder-open fa-lg"></i> Adicionar Produto</button>
             <div class="pull-right">  
-               <!-- <button class="btn fa-btn-color" type="submit" name="visualizar"> <i class="fa fa-file-excel-o fa-lg"></i> Exportar</button>
-                <button class="btn fa-btn-color" type="submit" name="visualizar"> <i class="fa fa-print fa-lg"></i> Imprimir</button>-->
+                <button class="btn fa-btn-color" type="submit" name="visualizar"> <i class="fa fa-file-excel-o fa-lg"></i> Exportar</button>
+                <button class="btn fa-btn-color" type="submit" name="visualizar"> <i class="fa fa-print fa-lg"></i> Imprimir</button>
             </div>
     </div>    
        <!-- <div class="page-header">
@@ -57,14 +57,12 @@
                             </td>
                            <td>
                            <!-- <a href="#"><span class="btn btn-info"><i class="fa fa-pencil fa-lg fa-icon-color" ></i></span></a>-->
-                            
-                             <a id="btnEditar" href="{{ route('admin.produto.editarProduto',['id'=>$produto->id]) }}"> <span class="btn btn-info"><i class="fa fa-pencil" ></i> Editar</span></a>
+                             <a href="#" data-toggle="modal" data-target="#edite" data-id="{{ $produto->id }}"><i class="fa fa-pencil fa-lg fa-icon-color" ></i></a>
+                                     
                              
                              
-  
-                               <a href="{{ route('admin.produto.deletarProduto',['id'=>$produto->id]) }}"><span class="btn btn-info"><i class="fa fa-trash" ></i> Deletar</span></a>
-                           
-                            
+                             
+                             <a href=#" data-toggle="modal" data-target="#confirmDelete"><i class="fa fa-trash fa-lg fa-icon-color"></i></a>
      
                                   </td>
                         </tr>
@@ -80,6 +78,8 @@
     </div>
 </div>
     @endsection
-   
+    @include('admin.produto.create')
+    @include('admin.produto.delete')
+    @include('admin.produto.edite')
    
  

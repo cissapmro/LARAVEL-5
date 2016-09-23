@@ -4,12 +4,10 @@
 
 <div class="painel">
     <div class="panel-header">     
-              <!-- <button type="submit" class="btn fa-btn-color" data-toggle="modal" data-target="#modal"><i class="fa fa-folder-open fa-lg"></i> Adicionar Categoria</button>-->
-             <a id="add" href="{{ route('admin.categoria.create') }}" <button class="btn btn-info" type="submit" name="visualizar">Adicionar Categoria</button></a><br />
-               <div class="pull-right">  
-                
-               <!-- <button class="btn fa-btn-color" type="submit" name="visualizar"> <i class="fa fa-file-excel-o fa-lg"></i> Exportar</button>
-                <button class="btn fa-btn-color" type="submit" name="visualizar"> <i class="fa fa-print fa-lg"></i> Imprimir</button>-->
+               <button type="submit" class="btn fa-btn-color" data-toggle="modal" data-target="#modal"><i class="fa fa-folder-open fa-lg"></i> Adicionar Categoria</button>
+            <div class="pull-right">  
+                <button class="btn fa-btn-color" type="submit" name="visualizar"> <i class="fa fa-file-excel-o fa-lg"></i> Exportar</button>
+                <button class="btn fa-btn-color" type="submit" name="visualizar"> <i class="fa fa-print fa-lg"></i> Imprimir</button>
             </div>
     </div>    
        <!-- <div class="page-header">
@@ -40,11 +38,10 @@
                             <td>{{ $categoria->description }}</td>
                            <td>
                            <!-- <a href="#"><span class="btn btn-info"><i class="fa fa-pencil fa-lg fa-icon-color" ></i></span></a>-->
-                               <a id="btnEditar" href="{{ route('admin.categoria.editar',['id'=>$categoria->id]) }}"> <span class="btn btn-info"><i class="fa fa-pencil" ></i> Editar</span></a>
-                             
+                             <a href="#" data-toggle="modal" data-target="#edite"><i class="fa fa-pencil fa-lg fa-icon-color" ></i></a>
   
-                               <a href="{{ route('admin.categoria.deletar',['id'=>$categoria->id]) }}"><span class="btn btn-info"><i class="fa fa-trash" ></i> Deletar</span></a>
-                           
+ <!-- <a href="{{ route('admin.categoria.deletar',['id'=>$categoria->id]) }}"><i class="fa fa-trash fa-lg fa-icon-color" ></i></a>-->
+                             <a href=#" data-toggle="modal" data-target="#confirmDelete"><i class="fa fa-trash fa-lg fa-icon-color"></i></a>
      
                                   </td>
                         </tr>
@@ -60,6 +57,9 @@
     </div>
 </div>
     @endsection
-  
+    @include('admin.categoria.create')
+    @include('admin.categoria.delete')
+    @include('admin.categoria.edite')
+    
     
   

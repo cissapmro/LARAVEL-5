@@ -1,14 +1,15 @@
 
-@extends('template')
-@section('content')
-
- <div class="painel">
-        <div class="page-header">
-            <div class="text-info">
-                <h4 class="text-info">
-                    <i class="fa fa-folder-open fa-2x"></i> Editar Categoria</h4>
-            </div>
-        </div>
+ <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+     <div class="modal-dialog">
+             
+        <div class="modal-content">
+            <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                <div>
+                     <h4 class="text-info"><i class="fa fa-pencil fa-3x"></i>Criar {{ $categoria->name }}</h4>
+                </div>
+           </div>
+ <div id="conteudoModal" class="modal-body">
              
       <!--  {{ print_r($errors)}}-->
       @if($errors->any())
@@ -19,14 +20,14 @@
                 @endforeach
         </div>
         @endif
-                 {!! Form::open(['route'=>['admin.categoria.update', $categoria->id], 'method'=>'post']) !!}
-                
+                 {!! Form::open(['route'=>'admin.categoria.salvar', 'method'=>'post']) !!}
+                 
  <div class="row">
                  <div class="form-group">
                     <div class="col-md-5">
                         
                          {!! Form::label('name', 'Nome:') !!}
-                        {!! Form::text('name', $categoria->name, ['class'=>'form-control']) !!}
+                        {!! Form::text('name', null, ['class'=>'form-control']) !!}
                     </div>
                  </div>
  </div>
@@ -35,19 +36,19 @@
                      <div class="col-md-8">
                          
                          {!! Form::label('description', 'Descrição:') !!}
-                         {!! Form::textarea('description', $categoria->description, ['class'=>'form-control']) !!}
+                         {!! Form::textarea('description', null, ['class'=>'form-control']) !!}
                     </div>
                 </div>
              </div>
  </div>
              <div class="modal-footer">
  
-                 {!! Form::submit('Salvar', ['class'=>'btn btn-primary']) !!}
+                 {!! Form::submit('Editar', ['class'=>'btn btn-primary']) !!}
  
                  {!! Form::close() !!}
-               <a id="add" href="{{ route('admin.categoria.index') }}" <button class="btn btn-default" type="submit" name="fechar">Fechar</button></a><br />
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
              </div>
          </div>
      </div>
  </div>
-  @endsection
+ 
