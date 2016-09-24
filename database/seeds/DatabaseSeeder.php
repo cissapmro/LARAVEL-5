@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use CodeCommerce\Category;
+use CodeCommerce\Product;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,8 +18,8 @@ class DatabaseSeeder extends Seeder
 
         // $this->call(UserTableSeeder::class);
         $this->call('UserTableSeeder');
-    //    $this->call('CategoryTableSeeder');
-      //  $this->call('ProductTableSeeder');
+        $this->call('CategoriesTableSeeder');
+        $this->call('ProductsTableSeeder');
        
 
         Model::reguard();

@@ -21,12 +21,12 @@ class UserTableSeeder extends Seeder {
         //usando o faker
        // $faker = Faker::create();
       
-        factory('App\User')->create([
+        factory('CodeCommerce\User')->create([
            'name'=> 'Cissa', 
            'email' => 'cissa.pmro@gmail.com',
            'password' => Hash::make(123456)
         ]);
-        factory('App\User', 3)->create();
+        factory('CodeCommerce\User', 2)->create();
       //  foreach(range(1,10) as $i){
             
        // User::create([
