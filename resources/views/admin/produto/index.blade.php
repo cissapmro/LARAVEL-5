@@ -27,9 +27,11 @@
                         <th>Id</th>
                         <th>Nome</th>
                         <th>Descrição</th>
-                        <th>Price</th>
+                        <th>Preço</th>
+                        <th>Categoria</th>
                         <th>Destaque</th>
                         <th>Recomendar</th>
+                      
                         <th>Ação</th>
                     </tr>
                     </thead>
@@ -40,6 +42,7 @@
                             <td>{{ $produto->name }}</td>
                             <td>{{ $produto->description }}</td>
                             <td>{{ $produto->price }}</td>
+                            <td>{{ $produto->category->name }}</td>
                             <td>
                               @if ($produto->featured==0)
                               Mais vendidos

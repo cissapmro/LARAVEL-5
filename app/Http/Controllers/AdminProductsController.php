@@ -7,6 +7,7 @@ namespace CodeCommerce\Http\Controllers;
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
 use CodeCommerce\Product;
+use CodeCommerce\Category;
 
 class AdminProductsController extends Controller
 {
@@ -20,8 +21,11 @@ class AdminProductsController extends Controller
          $produtos = $this->produto->paginate(5);
         return view('admin.produto.index', compact('produtos'));
     }
-    public function create(){
-        return view('admin.produto.create');
+    //método injection = não precisa instanciar
+    public function create(Category $category){
+        
+        $categories = $category->lists('name', 'id');
+        return view('admin.produto.create', compact('categories'));
     }
     //GRAVAR DADOS NO BANCO//
    // public function store(Request $request){
@@ -35,9 +39,11 @@ class AdminProductsController extends Controller
         $this->produto->find($id)->delete();
         return redirect()->route('admin.produto.index');
     }
-    public function editar($id){
+    public function editar($id, Category $category){
+        
+        $categories = $category->lists('name', 'id');
         $produto = $this->produto->find($id);
-        return view('admin.produto.edite', compact('produto'));
+        return view('admin.produto.edite', compact('produto', 'categories'));
     }
     public function update(Requests\ProductsRequest $request, $id){
         $this->produto->find($id)->update($request->all());

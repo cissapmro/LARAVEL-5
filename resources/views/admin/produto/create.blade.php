@@ -20,7 +20,21 @@
       
         @endif
                  {!! Form::open(['route'=>'admin.produto.salvarProduto', 'method'=>'post']) !!}
- <div class="row">
+ 
+                 <div class="row">
+     
+                 <div class="form-group">
+                    <div class="col-md-2">
+                        
+                         {!! Form::label('category', 'Categoria:') !!}
+                        {!! Form::select('category_id', $categories, null, ['class'=>'form-control']) !!}
+                    
+                    </div>
+                 </div>
+ </div>
+                 
+                 <div class="row">
+     
                  <div class="form-group">
                     <div class="col-md-5">
                         
@@ -40,7 +54,7 @@
                  </div>
                  <div class="row">
                 <div class="form-group">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                          
                          {!! Form::label('price', 'Price:') !!}
                          {!! Form::text('price', null, ['class'=>'form-control']) !!}
@@ -49,7 +63,7 @@
                  </div>
                  <div class="row">
                 <div class="form-group">
-                    <div class="col-md-4 col-md-offset5">
+                    <div class="col-md-2 col-md-offset5">
                         {!! Form::label('destaque', 'Destaque:') !!}
                         <select name='featured' id='destaque' class='form-control'>
                             <option value="0">Mais vendidos</option>

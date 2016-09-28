@@ -27,10 +27,13 @@ $factory->define(CodeCommerce\User::class, function (Faker\Generator $faker) {
 });
     $factory->define(CodeCommerce\Product::class, function (Faker\Generator $faker) {
     return [
+        
         'name' => $faker->word,
         'description' => $faker->sentence,
-        'price' => $faker->randomFloat(8,2),
+       // 'price' => $faker->randomFloat(8,2),
+          'price' => $faker->randomNumber(2),
         'featured' => $faker->boolean,
         'recommend' => $faker->boolean,
+        'category_id' => $faker->numberBetween(1, 5)
    ];  
 });

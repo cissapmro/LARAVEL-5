@@ -15,11 +15,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
+        
+        //Para postgresql
+        //Desativar verificação de chave estrangeira para esta conexão antes de seeds
+        //Permite apagar todas as tabelas com chaves estrangeiras - truncate
+        
+        DB::statement("TRUNCATE TABLE categories, products CASCADE");
 
         // $this->call(UserTableSeeder::class);
-        $this->call('UserTableSeeder');
-        $this->call('CategoriesTableSeeder');
-        $this->call('ProductsTableSeeder');
+        $this->call(UserTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);
        
 
         Model::reguard();

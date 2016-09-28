@@ -22,7 +22,17 @@
         @endif
         
                  {!! Form::open(['route'=>['admin.produto.updateProduto', $produto->id], 'method'=>'post']) !!}
- <div class="row">
+ 
+                 <div class="form-group">
+                    <div class="col-md-2">
+                        
+                         {!! Form::label('category', 'Categoria:') !!}
+                        {!! Form::select('category_id', $categories, $produto->category->id, ['class'=>'form-control']) !!}
+                    
+                    </div>
+                 </div>
+                 
+                 <div class="row">
                  <div class="form-group">
                     <div class="col-md-5">
                         
