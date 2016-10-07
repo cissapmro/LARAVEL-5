@@ -18,9 +18,10 @@
             </div>
         </div>-->
     <br />
-    <div class="panel-body">     
+    <div class="panel-body">    
+        <div class="container-fluid">
         <div class="table-responsive">  
-                
+           
                 <table class="table table-striped table-hover table-condensed">
                     <thead>
                     <tr>
@@ -36,7 +37,9 @@
                     </tr>
                     </thead>
                     <tbody>
+                       
                        @foreach($produtos as $produto)
+                       
                         <tr>
                             <td>{{ $produto->id }}</td>
                             <td>{{ $produto->name }}</td>
@@ -63,7 +66,7 @@
                             
                              <a id="btnEditar" href="{{ route('admin.produto.editarProduto',['id'=>$produto->id]) }}"> <span class="btn btn-info"><i class="fa fa-pencil" ></i> Editar</span></a>
                              
-                             
+                              <a href="{{route('admin.produto.imagem', ['id'=>$produto->id])}}"> <span class="btn btn-info"><i class="fa fa-pencil" ></i> Imagem</span></a>
   
                                <a href="{{ route('admin.produto.deletarProduto',['id'=>$produto->id]) }}"><span class="btn btn-info"><i class="fa fa-trash" ></i> Deletar</span></a>
                            
@@ -74,7 +77,9 @@
                        @endforeach
                     </tbody>
                 </table>
+        </div>
                 <hr>
+                         
                 <div class="pull-right">
             
               {!!  $produtos->render() !!}

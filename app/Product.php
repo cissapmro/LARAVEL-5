@@ -15,6 +15,12 @@ class Product extends Model
         'recommend'
     ];
     
+    //Relacionamento - 1 para N - 1 Produto tem muitas imagens
+    public function images() {
+        
+        return $this->hasMany('CodeCommerce\ProductImage');
+        
+    }
     public function category(){
         
         //lista a categoria que está em produto

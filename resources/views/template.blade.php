@@ -21,7 +21,7 @@
     <link rel="shortcut icon" href="{{ asset('/img/cissa.JPG') }}" type="image/jpg" />
   </head>
   <body>  
-    <div class="container">
+    <div class="container-fluid">
     <!--HEADER - TOPO
     ------------------------------------------- -->
     <header>
@@ -74,7 +74,8 @@
        <!--sessão de conteúdo-->
             @yield('content')
     </div>
-</main>                              
+</main>  
+    </div>
 <!--FIM DO MAIN
 ------------------------------------------- -->
 <!-- JQUERY------------------------------------------- -->
