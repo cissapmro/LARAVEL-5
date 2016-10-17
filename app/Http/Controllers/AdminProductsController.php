@@ -6,6 +6,7 @@ use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
 use CodeCommerce\Product;
 use CodeCommerce\Category;
+use CodeCommerce\Tag;
 use CodeCommerce\ProductImage;
 
 
@@ -31,14 +32,37 @@ class AdminProductsController extends Controller
         $categories = $category->lists('name', 'id');
         return view('admin.produto.create', compact('categories'));
     }
-    //GRAVAR DADOS NO BANCO//
+    //GRAVAR DADOS NO BANCO  - PRODUTO//
    // public function store(Request $request){
     public function salvar(Requests\ProductsRequest $request){ //usando a request customizada para validar os campos
         $input = $request->all();
         $produto = $this->produto->fill($input);
         $produto->save();
+    //GRAVAR DADOS NO BANCO  - TAG//
+        //request->get('tags') -> pega o valor do campo tags.
+      
+      $inputTags = array_map('trim', explode(',', $request->get('tags'))); //trim - remove espaços em branco - explode - transforma em array
+      // $inputTags = $request->get('tags');
+// var_dump("Resultado:" .$inputTags);
+        $this->salvarTag($inputTags,$produto->id);
+         
         return redirect()->route('admin.produto.index');
     }
+           
+    private function salvarTag($inputTags, $id){
+        
+        $tag = new Tag();
+        foreach($inputTags as $key => $value){
+            $nomeTag = $tag->firstOrCreate(["name"=> $value]);
+          print $nomeTag;
+            $idTags[]  = $nomeTag->id;
+             //dd($nomeTag);  
+        }
+        $produto = $this->produto->find($id);
+        $produto->tags()->sync($idTags);
+        
+    }     
+   
     public function deletar($id){
         $this->produto->find($id)->delete();
         return redirect()->route('admin.produto.index');
@@ -90,6 +114,7 @@ class AdminProductsController extends Controller
     
         
     }
+   
     
     
 }

@@ -11,7 +11,7 @@ class ProductImage extends Model
         'product_id',
         'extension'
     ];
-    //Relacionamento - 1 para 1 - 1 imagem pertence a 1 produto
+    //Cada imagem pertence à um produto: 1 para 1
     public function product() {
         
         return $this->belongsTo('CodeCommerce\Product');

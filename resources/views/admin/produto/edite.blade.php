@@ -90,6 +90,16 @@
                             </div>
                        </div>
                   </div>
+                 
+                 <div class="row">
+                     <div class="form-group">
+                         <div class="col-md-3">
+                             {!! Form::label('tag', 'Tag:') !!}
+                             {!! Form::textarea('tag', null, ['class'=>'form-control']) !!}
+                         </div>
+                     </div>
+                 </div>
+                 
                  </div>
                     
              </div>

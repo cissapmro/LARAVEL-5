@@ -15,7 +15,7 @@ class Product extends Model
         'recommend'
     ];
     
-    //Relacionamento - 1 para N - 1 Produto tem muitas imagens
+    //Um produto tem várias imagens: 1 para N
     public function images() {
         
         return $this->hasMany('CodeCommerce\ProductImage');
@@ -23,11 +23,27 @@ class Product extends Model
     }
     public function category(){
         
-        //lista a categoria que está em produto
-        //UM PARA UM
-        //UM produto para uma categoria
-        //RELACIONAMENTO: 1 PARA 1 - =     
+        //Um produto tem somente uma categoria: 1 para 1   
         return $this->belongsTo('CodeCommerce\Category'); //pertence para
         
+    }
+     //Um produto pode ter muitas tags e uma tag tem muitos produtos: N para N.
+     //Então podemos dizer que um produto pode pertencer à uma tag, mas também pode ter várias tags:
+
+    public function tag() {
+        return $this->belongsToMany('CodeCommerce\Tag');
+        
+    }
+   // public function getnameDescriptionAttribute(){
+        
+     //   return $this->name." - ".$this->description;
+        
+    //}
+    public function getTagListAttribute(){
+        
+        $tags = $this->tag->lists('name')->toArray(); 
+        
+        return implode(", ", $tags); 
+       
     }
 }

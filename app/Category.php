@@ -12,10 +12,7 @@ class Category extends Model
     ];
     
     public function products(){
-    //lista todos os produtos que estão na categoria
-    //UM PARA MUITOS
-    //uma categoria tem muitos produtos
-    //RELACIONAMENTO: 1 PARA N - categoria tem muitos produtos//
+    //Uma categoria tem vários produtos: 1 para N
 
         return $this->hasMany('CodeCommerce\Product'); //tem muitos
         

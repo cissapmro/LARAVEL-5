@@ -29,6 +29,7 @@ Route::group(['prefix'=>'categories'], function() {
     Route::get('deletar/{id}', ['as'=>'admin.categoria.deletar', 'uses'=>'AdminCategoriesController@deletar']); //deletar no banco
     Route::get('editar/{id}', ['as'=>'admin.categoria.editar', 'uses'=>'AdminCategoriesController@editar']); //deletar no banco
     Route::post('update/{id}', ['as'=>'admin.categoria.update', 'uses'=>'AdminCategoriesController@update']); //alterar no banco
+    Route::post('tag/{id}', ['as'=>'admin.tag.salvarTag', 'uses'=>'AdminCategoriesController@salvarTag']);
 });
 //Produto
 Route::group(['prefix'=>'products'], function() {   

@@ -42,9 +42,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatórios <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="categoria.blade.php">Categoria</a></li>
+                <li><a href="{{ route('admin.categoria.index')}}">Categoria</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="produto.blade.php">Produto</a></li>
+                <li><a href="{{ route('admin.produto.index')}}">Produto</a></li>
               </ul>
             </li>
           </ul>
