@@ -34,6 +34,6 @@ class CategoriesTableSeeder extends Seeder
         //    'name'=>'Seeds',
         //    'description'=>'Aprendendo a usar seeds'
       //  ]);
-        factory('CodeCommerce\Category', 10)->create();
+        factory('CodeCommerce\Category', 5)->create();
     }
 }

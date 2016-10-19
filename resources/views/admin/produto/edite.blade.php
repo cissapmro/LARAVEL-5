@@ -94,8 +94,8 @@
                  <div class="row">
                      <div class="form-group">
                          <div class="col-md-3">
-                             {!! Form::label('tag', 'Tag:') !!}
-                             {!! Form::textarea('tag', null, ['class'=>'form-control']) !!}
+                             {!! Form::label('tags', 'Tag:') !!}
+                             {!! Form::textarea('tags', $produto->tags, ['class'=>'form-control']) !!}
                          </div>
                      </div>
                  </div>

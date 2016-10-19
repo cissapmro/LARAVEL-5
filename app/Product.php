@@ -30,18 +30,17 @@ class Product extends Model
      //Um produto pode ter muitas tags e uma tag tem muitos produtos: N para N.
      //Então podemos dizer que um produto pode pertencer à uma tag, mas também pode ter várias tags:
 
-    public function tag() {
+    public function tags() {
         return $this->belongsToMany('CodeCommerce\Tag');
         
     }
-   // public function getnameDescriptionAttribute(){
-        
-     //   return $this->name." - ".$this->description;
-        
-    //}
+    public function getNameDescriptionAttribute()
+    {
+        return $this->name." - ".$this->description;
+    }
     public function getTagListAttribute(){
         
-        $tags = $this->tag->lists('name')->toArray(); 
+        $tags = $this->tags->lists('name')->toArray(); 
         
         return implode(", ", $tags); 
        

@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
+    protected $fillable = [
+        'name'
+        
+    ];
+    
     public function products() {
      
     //Um produto pode ter muitas tags e uma tag tem muitos produtos: N para N.

@@ -38,6 +38,6 @@ class ProductsTableSeeder extends Seeder
           // 'featured'=>'Em promoção',
           // 'recommend'=>'Sim'
       // ]);
-       factory('CodeCommerce\Product', 10)->create();
+       factory('CodeCommerce\Product', 5)->create();
     }
 }

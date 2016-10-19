@@ -67,14 +67,23 @@ class AdminProductsController extends Controller
         $this->produto->find($id)->delete();
         return redirect()->route('admin.produto.index');
     }
+    
     public function editar($id, Category $category){
         
         $categories = $category->lists('name', 'id');
         $produto = $this->produto->find($id);
+        
+        $produto->tags = $produto->tag_list;
+        
         return view('admin.produto.edite', compact('produto', 'categories'));
     }
+    
     public function update(Requests\ProductsRequest $request, $id){
-        $this->produto->find($id)->update($request->all());
+        $this->produto->findOrNew($id)->update($request->all());
+        
+       $input = array_map('trim', explode(',', $request->get('tags')));
+       $this->salvarTag($input,$id);
+
          return redirect()->route('admin.produto.index');
     }
    
