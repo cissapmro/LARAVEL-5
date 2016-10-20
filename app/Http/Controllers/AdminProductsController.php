@@ -23,7 +23,7 @@ class AdminProductsController extends Controller
     }
     public function index(){
        // $produtos = $this->produto->all();
-         $produtos = $this->produto->paginate(5);
+         $produtos = $this->produto->orderBy('id')->paginate(5);
         return view('admin.produto.index', compact('produtos'));
     }
     //método injection = não precisa instanciar
@@ -78,8 +78,13 @@ class AdminProductsController extends Controller
         return view('admin.produto.edite', compact('produto', 'categories'));
     }
     
-    public function update(Requests\ProductsRequest $request, $id){
-        $this->produto->findOrNew($id)->update($request->all());
+    public function update(Requests\ProductsRequest $request){
+        $data = $request->all();
+        $id = $data['id'];
+
+        unset($data['id']);
+
+        $this->produto->find($id)->update($data);
         
        $input = array_map('trim', explode(',', $request->get('tags')));
        $this->salvarTag($input,$id);
@@ -123,7 +128,11 @@ class AdminProductsController extends Controller
     
         
     }
-   
+
+    public function get($id)
+    {
+        return $this->produto->find($id);
+    }
     
     
 }
