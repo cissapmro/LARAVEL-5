@@ -32,14 +32,15 @@ Route::group(['prefix'=>'categories'], function() {
     Route::post('tag/{id}', ['as'=>'admin.tag.salvarTag', 'uses'=>'AdminCategoriesController@salvarTag']);
 });
 //Produto
-Route::group(['prefix'=>'products'], function() {   
+Route::group(['prefix'=>'products'], function() {
 
+    Route::get('{id}', ['as'=>'admin.produto.get', 'uses'=>'AdminProductsController@get']); // pegar um produto
     Route::get('', ['as'=>'admin.produto.index', 'uses'=>'AdminProductsController@index']);//crud produto
     Route::post('', ['as'=>'admin.produto.salvarProduto', 'uses'=>'AdminProductsController@salvar']); //gravar no banco
     Route::get('createProduto', ['as'=>'admin.produto.createProduto', 'uses'=>'AdminProductsController@create']); //ALTERADO 
     Route::get('deletarProduto/{id}', ['as'=>'admin.produto.deletarProduto', 'uses'=>'AdminProductsController@deletar']); //deletar no banco
     Route::get('editarProduto/{id}', ['as'=>'admin.produto.editarProduto', 'uses'=>'AdminProductsController@editar']); //deletar no banco
-    Route::post('updateProduto/{id}', ['as'=>'admin.produto.updateProduto', 'uses'=>'AdminProductsController@update']); //alterar no banco
+    Route::post('updateProduto}', ['as'=>'admin.produto.updateProduto', 'uses'=>'AdminProductsController@update']); //alterar no banco
     //Imagem
     Route::group(['prefix'=>'images'], function(){
  
