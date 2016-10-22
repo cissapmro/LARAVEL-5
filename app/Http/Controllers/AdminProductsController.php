@@ -40,29 +40,37 @@ class AdminProductsController extends Controller
         $produto->save();
     //GRAVAR DADOS NO BANCO  - TAG//
         //request->get('tags') -> pega o valor do campo tags.
-      
+        //Pega os dados do campo tags e transforma em array, separado por vírgula e sem espaços em branco.
       $inputTags = array_map('trim', explode(',', $request->get('tags'))); //trim - remove espaços em branco - explode - transforma em array
-      // $inputTags = $request->get('tags');
-// var_dump("Resultado:" .$inputTags);
+     //print_r($inputTags); //Array ( [0] => Windows 2000 [1] => Internet )
+     //die();
+      // Função salvarTag
         $this->salvarTag($inputTags,$produto->id);
-         
+        
         return redirect()->route('admin.produto.index');
     }
            
     private function salvarTag($inputTags, $id){
-        
+     //   print($inputTags); 
         $tag = new Tag();
+      //  $tag = $tag->all();
         foreach($inputTags as $key => $value){
-            $nomeTag = $tag->firstOrCreate(["name"=> $value]);
-          print $nomeTag;
-            $idTags[]  = $nomeTag->id;
-             //dd($nomeTag);  
+          //ENCONTRA O PRIMEIRO REGISTRO POR NOME     
+          $proximaTag = $tag->firstOrCreate(["name"=> $value]);
+        //  print "Resultado" .$proximaTag; //Resultado{"name":"Windows 2000","updated_at":"2016-10-22 23:02:22","created_at":"2016-10-22 23:02:22","id":6}
+        //  die();
+          //PEGA O ID DA TAG
+            $idTags[]  = $proximaTag->id;
+           // print_r($idTags); //Array ( [0] => 6 )
+          //  die();
         }
         $produto = $this->produto->find($id);
+      
+      //  print $produto; //{"id":7,"name":"Computador","description":"Descri\u00e7\u00e3o de Computador","price":"8.00","created_at":"2016-10-22 23:08:10","updated_at":"2016-10-22 23:08:10","featured":false,"recommend":true,"category_id":1}
+      //  die();
         $produto->tags()->sync($idTags);
         
     }     
-   
     public function deletar($id){
         $this->produto->find($id)->delete();
         return redirect()->route('admin.produto.index');
@@ -79,7 +87,7 @@ class AdminProductsController extends Controller
     }
     
     public function update(Requests\ProductsRequest $request, $id){
-        $this->produto->findOrNew($id)->update($request->all());
+        $this->produto->find($id)->update($request->all());
         
        $input = array_map('trim', explode(',', $request->get('tags')));
        $this->salvarTag($input,$id);

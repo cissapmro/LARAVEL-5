@@ -41,8 +41,9 @@ class Product extends Model
     public function getTagListAttribute(){
         
         $tags = $this->tags->lists('name')->toArray(); 
-        
+        //return $tags;
         return implode(", ", $tags); 
        
     }
+  
 }
