@@ -17,7 +17,7 @@ class ProductTag extends Migration
             $table->integer('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('tag_id');
-            $table->foreign('tag_id')->references('id')->on('products');
+            $table->foreign('tag_id')->references('id')->on('tags');
         });
     }
 

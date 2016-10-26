@@ -38,10 +38,11 @@ class Product extends Model
     {
         return $this->name." - ".$this->description;
     }
+    //Lista os atributos da tag
     public function getTagListAttribute(){
         
         $tags = $this->tags->lists('name')->toArray(); 
-        //return $tags;
+       // return $tags;
         return implode(", ", $tags); 
        
     }
