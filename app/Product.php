@@ -3,6 +3,7 @@
 namespace CodeCommerce;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
@@ -13,6 +14,10 @@ class Product extends Model
         'price',
         'featured',
         'recommend'
+    ];
+    use SoftDeletes;
+    protected $dates = [
+        'deleted_at'
     ];
     
     //Um produto tem várias imagens: 1 para N

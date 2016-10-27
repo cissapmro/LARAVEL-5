@@ -15,9 +15,12 @@ class ProductTag extends Migration
         Schema::create('product_tag', function (Blueprint $table) {
            
             $table->integer('product_id');
+         //   $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products');
             $table->integer('tag_id');
-            $table->foreign('tag_id')->references('id')->on('tags');
+         //   $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+             $table->foreign('tag_id')->references('id')->on('tags');
+             
         });
     }
 

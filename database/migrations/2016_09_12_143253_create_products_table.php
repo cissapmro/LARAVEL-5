@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
 	    $table->text('description');
 	    $table->decimal('price');
             $table->timestamps();
+            $table->softDeletes(); //deletar chave estrangeira
         });
     }
 
