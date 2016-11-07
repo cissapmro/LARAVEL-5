@@ -78,6 +78,7 @@
     </div>
 <!--FIM DO MAIN
 ------------------------------------------- -->
+@yield('post-html')
 <!-- JQUERY------------------------------------------- -->
     <!--<script src="../js/jquery.js"></script>-->
   <script src="{{ asset('/js/jquery.js') }}"></script>
@@ -87,6 +88,14 @@
   
   
    <script type="text/javascript">
+    $('#add').on('click',function(){
+        $('#create').modal('show');    
+    });
+   
+    </script>
+    @yield('post-scripts')
+    
+     <script type="text/javascript">
     $('#add').on('click',function(){
         $('#create').modal('show');    
     });

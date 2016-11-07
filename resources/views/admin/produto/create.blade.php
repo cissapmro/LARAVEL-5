@@ -1,14 +1,26 @@
 
-@extends('template')
+<div class="modal fade" id="modal-create" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                <div>
+                     <h4 class="text-info"><i class="fa fa-pencil fa-3x"></i> Criar Produto</h4>
+                </div>
+            </div>
+            <div id="conteudoModal" class="modal-body">
+                <div class="container-fluid">
+  
+                    <!--@extends('template')
 @section('content')
 
-      <div class="painel">
+     <!-- <div class="painel">
         <div class="page-header">
             <div class="text-info">
-                <h4 class="text-info">
-                    <i class="fa fa-folder-open fa-2x"></i> Adicionar Produto</h4>
+                <h4 class="text-info"><i class="fa fa-folder-open fa-2x"></i> Adicionar Produto</h4>
             </div>
-        </div>
+        </div>-->
       <!--  {{ print_r($errors)}}-->
       @if($errors->any())
         <div class='alert alert-danger'>
@@ -100,15 +112,21 @@
 
              <div class="modal-footer">
  
-                 {!! Form::submit('Salvar', ['class'=>'btn btn-primary']) !!}
+                 {!! Form::submit('Salvar produto', ['class'=>'btn btn-primary']) !!}
  
                  {!! Form::close() !!}
-                 <a id="add" href="{{ route('admin.produto.index') }}" <button class="btn btn-default" type="submit" name="fechar">Fechar</button></a><br />
+              <!--   <a id="add" href="{{ route('admin.produto.index') }}" <button class="btn btn-default" type="submit" name="fechar">Fechar</button></a><br />-->
+                 <button class="btn btn-default" type="button" data-dismiss="modal">Fechar</button>
              </div>
      </div>
-         </div>
-     </div>
- @endsection
+    </div>
+    </div>
+<style>
+    #modal {
+        overflow-y:auto;
+    }
+</style>
+ <!--@endsection-->
    
 
    

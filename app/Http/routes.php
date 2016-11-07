@@ -10,15 +10,31 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', function () {
-    return view('welcome');
+/*********LOJA**************/
+Route::group(['prefix' => ''], function() {
+    Route::get('/', ['as' => 'loja.index', 'uses' => 'LojaController@index']);
+    Route::get('categoria/{id}', ['as' => 'loja.categoria', 'uses' => 'LojaController@categoria']);
+    Route::get('produto/{id}', ['as' => 'loja.produto', 'uses' => 'LojaController@produto']);
+    
 });
+/****************************/
+//Route::get('/', 'LojaController@index');
+
+//Route::get('home', 'HomeController@index');
+
+
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
+
 //Route::get('blog/{nome}', 'BlogController@index');
 
 //FORÇAR PARA QUE O PARÂMETRO ID SEJA NUMÉRICO//
 //Route::pattern('id', '[0-9]+');
 
-//ROTAS AGRUPADAS//
+//ROTAS AGRUPADAS - ADMIN//
 Route::group(['prefix'=>'admin', 'where'=> ['id'=> '[0-9]+']], function() {
 //Categoria 
 Route::group(['prefix'=>'categories'], function() {

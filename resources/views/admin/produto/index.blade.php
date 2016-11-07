@@ -4,8 +4,13 @@
 
 <div class="painel">
     <div class="panel-header">     
-              <a id="add" href="{{ route('admin.produto.createProduto') }}" <button class="btn btn-info" type="submit" name="visualizar">Adicionar Produto</button></a><br />
-            <div class="pull-right">  
+             <!-- <a id="add" href="{{ route('admin.produto.createProduto') }}" <button class="btn btn-info" type="submit" name="visualizar">Adicionar Produto</button></a><br />-->
+                    
+                        <button class="btn btn-info" data-toggle="modal" data-target="#modal-create">Adicionar Produto</button><br />
+            
+                        
+                        
+                        <div class="pull-right">  
                <!-- <button class="btn fa-btn-color" type="submit" name="visualizar"> <i class="fa fa-file-excel-o fa-lg"></i> Exportar</button>
                 <button class="btn fa-btn-color" type="submit" name="visualizar"> <i class="fa fa-print fa-lg"></i> Imprimir</button>-->
             </div>
@@ -22,7 +27,7 @@
         <div class="container-fluid">
         <div class="table-responsive">  
            
-                <table class="table table-striped table-hover table-condensed">
+                <table id="table-list" class="table table-striped table-hover table-condensed">
                     <thead>
                     <tr>
                         <th>Id</th>
@@ -64,11 +69,15 @@
                            <td>
                            <!-- <a href="#"><span class="btn btn-info"><i class="fa fa-pencil fa-lg fa-icon-color" ></i></span></a>-->
                             
-                             <a id="btnEditar" href="{{ route('admin.produto.editarProduto',['id'=>$produto->id]) }}"> <span class="btn btn-info"><i class="fa fa-pencil" ></i> Editar</span></a>
+                                   <!--  <a id="btnEditar" href="{{ route('admin.produto.editarProduto',['id'=>$produto->id]) }}"> <span class="btn btn-info"><i class="fa fa-pencil" ></i> Editar</span></a>-->
                              
+                               <a id="btnEditar" href="javascript:void(0)" data-id="{{$produto->id}}"> <span class="btn btn-info"><i class="fa fa-pencil" ></i> Editar</span></a>
+                            
                               <a href="{{route('admin.produto.imagem', ['id'=>$produto->id])}}"> <span class="btn btn-info"><i class="fa fa-pencil" ></i> Imagem</span></a>
   
-                               <a href="{{ route('admin.produto.deletarProduto',['id'=>$produto->id]) }}"><span class="btn btn-info"><i class="fa fa-trash" ></i> Deletar</span></a>
+                                   <!--  <a href="{{ route('admin.produto.deletarProduto',['id'=>$produto->id]) }}"><span class="btn btn-info"><i class="fa fa-trash" ></i> Deletar</span></a>-->
+                           
+                                <a id="btnDeletar" href="javascript:void(0)" data-id="{{$produto->id}}"><span class="btn btn-info"><i class="fa fa-trash" ></i> Deletar</span></a>
                            
                             
      
@@ -87,7 +96,51 @@
         </div>
     </div>
 </div>
+
+     @endsection
+    @section("post-html")
+    
+        @include("admin.produto.edite")
+        @include("admin.produto.create")
+        @include("admin.produto.delete")
+        
     @endsection
-   
+    
+    @section("post-scripts")
+    <script type="text/javascript">
+        $('#table-list a#btnEditar').click(function(){
+            var idRegistro = $(this).data('id');
+            
+            $.get('/admin/products/' + idRegistro, function(produto){
+                $('#id').val(produto.id);
+                $('#category').val(produto->category->id);
+                $('#name').val(produto.name);
+                $('#price').val(produto.price);
+                $('#description').val(produto.description);
+                $('#featured').val(produto.featured);
+                $('#recommend').val(produto.recommend);
+                $('#tags').val(produto.tags);
+                
+            });
+            
+            $('#modal-edit').modal('show');
+        });
+        $('#table-list a#btnDeletar').click(function(){
+            var idRegistro = $(this).data('id');
+            
+            $.get('admin/products/' + idRegistro, function(produto){
+               
+               var btnExcluir = document.getElementById('btnExcluir');
+               btnExcluir.setAttribute("href", "admin/products/deletarProduto/"+idRegistro);
+               $('#nome').html(produto.name);
+               $('#descrição').html(produto.description);
+                
+            });
+            
+            $('#modal-delete').modal('show');
+        });
+        
+    </script>
+    @endsection
    
  

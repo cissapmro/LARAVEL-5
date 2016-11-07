@@ -51,5 +51,15 @@ class Product extends Model
         return implode(", ", $tags); 
        
     }
+    //Regra de negócio - campo featured
+    public function scopeFeatured($query){
+        return $query->where('featured','=',true);
+    }
+    public function scopeRecommend($query){
+        return $query->where('recommend','=',true);
+    }
+    public function scopeCategoryId($query, $id){
+        return $query->where('category_id', '=', $id);
+    }
   
 }

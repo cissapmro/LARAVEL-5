@@ -24,6 +24,9 @@ class AdminProductsController extends Controller
     public function index(){
        // $produtos = $this->produto->all();
          $produtos = $this->produto->paginate(5);
+         
+         $produtos = $this->produto->orderBy('id')->paginate(5);
+         
         return view('admin.produto.index', compact('produtos'));
     }
     //método injection = não precisa instanciar
@@ -83,21 +86,35 @@ class AdminProductsController extends Controller
     public function editar($id, Category $category){
         
         $categories = $category->lists('name', 'id');
+        dd($categories);
         $produto = $this->produto->find($id);
         
         $produto->tags = $produto->tag_list;
         
         return view('admin.produto.edite', compact('produto', 'categories'));
+         
     }
     
     public function update(Requests\ProductsRequest $request, $id, Tag $tag){
-        $this->produto->find($id)->update($request->all());
+       // $this->produto->find($id)->update($request->all());
+        
+        $data = $request->all();
+        $id = $data['id'];
+        unset($data['id']);
+        
+         $this->produto->find($id)->update($data);
         
        $input = array_map('trim', explode(',', $request->get('tags')));
        $this->salvarTag($tag, $input,$id);
 
          return redirect()->route('admin.produto.index');
     }
+    
+                    public function get($id){
+                        return $this->produto->find($id);
+                        
+
+                    }
    
     public function images($id){
         
