@@ -10,7 +10,7 @@
            
                 <ul class="breadcrumb">
                     <li><a href="#">Você está aqui:</a></li>
-                     <li><a href="#">Categorias</a></li>
+                     <li><a href="#">Categoria</a></li>
                      <li><a href="#">{{  $categoria->name }}</a></li>
   
                 </ul>  
@@ -19,8 +19,6 @@
             @if(count($produto))
                 @include('loja.include._produto', ['produto' => $produto])
             @else 
-            
-            
             <div class='alert alert-danger'>
                 <h4>Atenção!</h4>
                 Esta categoria não tem produto cadastrado!

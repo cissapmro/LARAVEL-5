@@ -44,7 +44,7 @@ class LojaController extends Controller
           $categoria = $this->categoria->find($id);
        // dd($categoria);
           $produto = $this->produto->categoryId($id)->get(); //scopeCategoriaId
-      //  dd($produto); //mostra todos os atributos do campo category_id//
+       // dd($produto); //mostra todos os valores do campo category_id//
         return view('loja.categoria', compact('categories','categoria','produto'));
     }
     // conteúdo 
