@@ -12,13 +12,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>  
 <!-- BOOTSTRAP - CSS------------------------------------->
-    <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}" type="text/css">
+<link href="{{ elixir('css/all.css') }}" rel="stylesheet">
+  <!--  <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}" type="text/css">
 <!-- CSS------------------------------------------------->
-    <link rel="stylesheet" href="{{ asset('/css/app.css') }}" />
+  <!--  <link rel="stylesheet" href="{{ asset('/css/app.css') }}" />
 <!-- FONTES------------------------------------------- -->
-     <link rel="stylesheet" type="text/css" href="{{ asset('/font-awesome/css/font-awesome.min.css') }}">
+  <!--   <link rel="stylesheet" type="text/css" href="{{ asset('/font-awesome/css/font-awesome.min.css') }}">
 <!-- ICON--------------------------------------------- -->
-    <link rel="shortcut icon" href="{{ asset('/img/cissa.JPG') }}" type="image/jpg" />
+  <!--  <link rel="shortcut icon" href="{{ asset('/img/cissa.JPG') }}" type="image/jpg" />-->
   </head>
   <body>  
     <div class="container-fluid">
@@ -81,10 +82,11 @@
 @yield('post-html')
 <!-- JQUERY------------------------------------------- -->
     <!--<script src="../js/jquery.js"></script>-->
-  <script src="{{ asset('/js/jquery.js') }}"></script>
+<script src="{{ elixir('js/all.js') }}"></script>
+ <!-- <script src="{{ asset('/js/jquery.js') }}"></script>
 <!-- BOOTSTRAP - JSCRIPT--------------------------------->
     <!--<script src="../js/bootstrap.min.js"></script>-->
-  <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+  <!--<script src="{{ asset('/js/bootstrap.min.js') }}"></script>-->
   
   
    <script type="text/javascript">

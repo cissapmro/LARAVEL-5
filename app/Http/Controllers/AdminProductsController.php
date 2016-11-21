@@ -86,7 +86,7 @@ class AdminProductsController extends Controller
     public function editar($id, Category $category){
         
         $categories = $category->lists('name', 'id');
-        dd($categories);
+      //  dd($categories);
         $produto = $this->produto->find($id);
         
         $produto->tags = $produto->tag_list;

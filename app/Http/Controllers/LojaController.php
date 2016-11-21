@@ -8,6 +8,7 @@ use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
 use CodeCommerce\Category;
 use CodeCommerce\Product;
+use CodeCommerce\Tag;
 
 
 class LojaController extends Controller
@@ -15,11 +16,14 @@ class LojaController extends Controller
     
     private $produto;
     private $categoria;
+    private $tag;
     
-    function __construct(Product $product, Category $category){
+    function __construct(Product $product, Category $category, Tag $tag){
         
        $this->produto = $product;
-       $this->categoria = $category;        
+       $this->categoria = $category;  
+       $this->tag = $tag;
+      
     }
     
     public function index(){
@@ -43,16 +47,18 @@ class LojaController extends Controller
       //  dd($categorias);
           $categoria = $this->categoria->find($id);
        // dd($categoria);
-          $produto = $this->produto->categoryId($id)->get(); //scopeCategoriaId
+          $produto = $this->produto->ofcategory($id)->get(); //scopeCategoriaId
        // dd($produto); //mostra todos os valores do campo category_id//
         return view('loja.categoria', compact('categories','categoria','produto'));
     }
-    // conteúdo 
-   // public function produto($id){
-     //   $produto = $this->produto->find($id);
-       // $categories = $this->categoria->all();
+    // Detalhes do Produto 
+    public function produto($id){
+        $produto = $this->produto->find($id);
+       // dd($produto);
+        $categories = $this->categoria->all();
        // dd($categories);
-        
-       // return view('loja.produto', compact('produto'));
-    //}
+        $produto->tags = $produto->tag_list;
+      //  dd($produto->tags);
+        return view('loja.produto', compact('categories','produto'));
+    }
 }
