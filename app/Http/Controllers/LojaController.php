@@ -61,4 +61,11 @@ class LojaController extends Controller
       //  dd($produto->tags);
         return view('loja.produto', compact('categories','produto'));
     }
+    public function tag($id){
+        $tag = $this->tag->find($id);
+        //dd($tag);
+         $categories = $this->categoria->all();
+       // dd($categoria);
+         return view('loja.tag', compact('tag', 'categories'));
+    }
 }

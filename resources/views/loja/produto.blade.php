@@ -52,7 +52,12 @@
         </div>
        <div class="col-sm-7">
                 <div class="product-information"><!--/product-information-->
-                    {{ $produto->tags }}
+                   <!-- {{ $produto->tags }}-->
+                   Tags:
+                    @foreach($produto->tags as $tag)
+                   
+                    <p class='text-info'<a href="{{ route('loja.tag', $tag->id) }}" class="">{{ $produto->tags }}</a></p>
+                    @endforeach
                 </div>
          
        </div>
