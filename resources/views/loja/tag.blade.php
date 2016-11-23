@@ -9,7 +9,7 @@
     <div class="product-details">
         <ul class="breadcrumb">
                     <li><a href="#">Você está aqui:</a></li>
-                     <li><a href="#">Produtos da Categoria</a></li>
+                     <li><a href="#">Produtos da Tag</a></li>
                      <li><a href="#">{{  $tag->name }}</a></li>
   
                 </ul> 
