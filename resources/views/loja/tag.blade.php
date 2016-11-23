@@ -7,14 +7,19 @@
 @section('content')
 <div class="col-sm-9 padding-right">
     <div class="product-details">
-        <p class="text-info">Produtos da {{ $tag->name }}</p>
-       <div class="col-sm-7">
+        <ul class="breadcrumb">
+                    <li><a href="#">Você está aqui:</a></li>
+                     <li><a href="#">Produtos da Categoria</a></li>
+                     <li><a href="#">{{  $tag->name }}</a></li>
+  
+                </ul> 
+       <div class="col-sm-10">
                 <div class="product-information">
                     
-                    @include('loja.include._produto', ['produto' => $tag->produto])
+                    @include('loja.include._produto', ['produto' => $tag->products])
                      
                 </div>
-         
+        
        </div>
     </div>
     <!--/product-details-->

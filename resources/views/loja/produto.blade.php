@@ -52,11 +52,10 @@
         </div>
        <div class="col-sm-7">
                 <div class="product-information"><!--/product-information-->
-                   
-                   Tags:
+                  
                     @foreach($produto->tags as $tag)
                    
-                    <a href="{{ route('loja.tag', ['id'=>$tag->id]) }}" class="label label-primary">{{ $tag->name }}</a>
+                    <a href="{{ route('loja.tag', ['id'=>$tag->id]) }}" class="label label-danger">{{ $tag->name }}</a>
                     @endforeach
                 </div>
            
