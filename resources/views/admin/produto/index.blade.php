@@ -4,9 +4,9 @@
 
 <div class="painel">
     <div class="panel-header">     
-             <!-- <a id="add" href="{{ route('admin.produto.createProduto') }}" <button class="btn btn-info" type="submit" name="visualizar">Adicionar Produto</button></a><br />-->
+             <a id="add" href="{{ route('admin.produto.createProduto') }}" <button class="btn btn-info" type="submit" name="visualizar">Adicionar Produto</button></a><br />
                     
-                        <button class="btn btn-info" data-toggle="modal" data-target="#modal-create">Adicionar Produto</button><br />
+                        <!--<button class="btn btn-info" data-toggle="modal" data-target="#modal-create">Adicionar Produto</button><br />-->
             
                         
                         
@@ -69,15 +69,15 @@
                            <td>
                            <!-- <a href="#"><span class="btn btn-info"><i class="fa fa-pencil fa-lg fa-icon-color" ></i></span></a>-->
                             
-                                   <!--  <a id="btnEditar" href="{{ route('admin.produto.editarProduto',['id'=>$produto->id]) }}"> <span class="btn btn-info"><i class="fa fa-pencil" ></i> Editar</span></a>-->
+                                  <a id="btnEditar" href="{{ route('admin.produto.editarProduto',['id'=>$produto->id]) }}"> <span class="btn btn-info"><i class="fa fa-pencil" ></i> Editar</span></a>
                              
-                               <a id="btnEditar" href="javascript:void(0)" data-id="{{$produto->id}}"> <span class="btn btn-info"><i class="fa fa-pencil" ></i> Editar</span></a>
+                              <!-- <a id="btnEditar" href="javascript:void(0)" data-id="{{$produto->id}}"> <span class="btn btn-info"><i class="fa fa-pencil" ></i> Editar</span></a>-->
                             
                               <a href="{{route('admin.produto.imagem', ['id'=>$produto->id])}}"> <span class="btn btn-info"><i class="fa fa-pencil" ></i> Imagem</span></a>
   
-                                   <!--  <a href="{{ route('admin.produto.deletarProduto',['id'=>$produto->id]) }}"><span class="btn btn-info"><i class="fa fa-trash" ></i> Deletar</span></a>-->
+                                   <a href="{{ route('admin.produto.deletarProduto',['id'=>$produto->id]) }}"><span class="btn btn-info"><i class="fa fa-trash" ></i> Deletar</span></a>
                            
-                                <a id="btnDeletar" href="javascript:void(0)" data-id="{{$produto->id}}"><span class="btn btn-info"><i class="fa fa-trash" ></i> Deletar</span></a>
+                               <!-- <a id="btnDeletar" href="javascript:void(0)" data-id="{{$produto->id}}"><span class="btn btn-info"><i class="fa fa-trash" ></i> Deletar</span></a>-->
                            
                             
      
@@ -98,7 +98,7 @@
 </div>
 
      @endsection
-    @section("post-html")
+  <!--  @section("post-html")
     
         @include("admin.produto.edite")
         @include("admin.produto.create")
@@ -141,6 +141,6 @@
         });
         
     </script>
-    @endsection
+    @endsection-->
    
  

@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="modal-create" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+<!--<div class="modal fade" id="modal-create" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
     
     <div class="modal-dialog">
         <div class="modal-content">
@@ -10,17 +10,17 @@
                 </div>
             </div>
             <div id="conteudoModal" class="modal-body">
-                <div class="container-fluid">
+                <div class="container-fluid">-->
   
-                    <!--@extends('template')
+                    @extends('template')
 @section('content')
 
-     <!-- <div class="painel">
+      <div class="painel">
         <div class="page-header">
             <div class="text-info">
                 <h4 class="text-info"><i class="fa fa-folder-open fa-2x"></i> Adicionar Produto</h4>
             </div>
-        </div>-->
+        </div>
       <!--  {{ print_r($errors)}}-->
       @if($errors->any())
         <div class='alert alert-danger'>
@@ -44,6 +44,10 @@
                     </div>
                  </div>
  </div>
+                 
+                 
+                 
+                 
                  
                  <div class="row">
      
@@ -115,18 +119,18 @@
                  {!! Form::submit('Salvar produto', ['class'=>'btn btn-primary']) !!}
  
                  {!! Form::close() !!}
-              <!--   <a id="add" href="{{ route('admin.produto.index') }}" <button class="btn btn-default" type="submit" name="fechar">Fechar</button></a><br />-->
-                 <button class="btn btn-default" type="button" data-dismiss="modal">Fechar</button>
+               <a id="add" href="{{ route('admin.produto.index') }}" <button class="btn btn-default" type="submit" name="fechar">Fechar</button></a><br />
+                 <!--<button class="btn btn-default" type="button" data-dismiss="modal">Fechar</button>-->
              </div>
      </div>
     </div>
     </div>
-<style>
+<!--<style>
     #modal {
         overflow-y:auto;
     }
-</style>
- <!--@endsection-->
+</style>-->
+ @endsection
    
 
    

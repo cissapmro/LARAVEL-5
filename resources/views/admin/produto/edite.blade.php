@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+<!--<div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
     
     <div class="modal-dialog">
         <div class="modal-content">
@@ -10,8 +10,8 @@
                 </div>
             </div>
             <div id="conteudoModal" class="modal-body">
-                <div class="container-fluid">
-<!--@extends('template')
+                <div class="container-fluid">-->
+@extends('template')
 @section('content')
 
  <div class="painel">
@@ -22,7 +22,7 @@
             </div>
         </div>
              
-      <!--  {{ print_r($errors)}}
+       {{ print_r($errors)}}
       @if($errors->any())
         <div class='alert alert-danger'>
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -31,10 +31,10 @@
                 @endforeach
         </div>
       
-        @endif-->
+        @endif
         
-                 {!! Form::open(['route'=>['admin.produto.updateProduto'], 'method'=>'post']) !!}
-                 <input type='hidden' id='id' name='id'>
+                 {!! Form::open(['route'=>['admin.produto.updateProduto', $produto->id], 'method'=>'post']) !!}
+                 <!--<input type='hidden' id='id' name='id'>-->
                  
                  <div class="form-group">
                     <div class="col-md-2">
@@ -44,7 +44,7 @@
                     
                     </div>
                  </div>
-                 
+            
                  <div class="row">
                  <div class="form-group">
                     <div class="col-md-5">
@@ -130,17 +130,17 @@
                  {!! Form::submit('Alterar produto', ['class'=>'btn btn-primary']) !!}
  
                  {!! Form::close() !!}
-                <!-- <a id="add" href="{{ route('admin.produto.index') }}" <button class="btn btn-default" type="submit" name="fechar">Fechar</button></a><br />-->
+                <a id="add" href="{{ route('admin.produto.index') }}" <button class="btn btn-default" type="submit" name="fechar">Fechar</button></a><br />
                  
-                  <button type="submit" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                 <!-- <button type="submit" class="btn btn-default" data-dismiss="modal">Fechar</button>-->
              </div>
      </div>
          </div>
      </div>
- <style>
+ <!--<style>
     #modal {
         overflow-y:auto;
     }
-</style>
- <!--@endsection-->
+</style>-->
+@endsection
    

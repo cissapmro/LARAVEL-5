@@ -12,7 +12,7 @@
                 <div class="product-information">
                     
                     @include('loja.include._produto', ['produto' => $tag->produto])
-                   
+                     
                 </div>
          
        </div>
