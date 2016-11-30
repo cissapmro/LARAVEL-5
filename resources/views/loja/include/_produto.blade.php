@@ -13,14 +13,14 @@
                     <h2>{{ $produto->price }}</h2>
                     <p>{{ $produto->name }}</p>
                     <a href="{{ route('loja.produto', ['id' =>$produto->id]) }}" class="btn btn-default add-to-cart"><i class="fa fa-crosshairs"></i>Mais detalhes</a>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar no carrinho</a>
+                    <a href="{{ route('cart.add', ['id' => $produto->id]) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar no carrinho</a>
                 </div>
                 <div class="product-overlay">
                     <div class="overlay-content">
                         <h2>{{ $produto->price }}</h2>
                         <p>{{ $produto->name }}</p>
                         <a href="{{ route('loja.produto', ['id' =>$produto->id]) }}" class="btn btn-default add-to-cart"><i class="fa fa-crosshairs"></i>Mais detalhes</a>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar no carrinho</a>
+                        <a href="{{ route('cart.add', ['id' => $produto->id]) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adicionar no carrinho</a>
                     </div>
                 </div>
             </div>

@@ -40,7 +40,7 @@
                                 <span>
                                     <!--<span>R$ {{ number_format($produto->price,2,",",".") }}</span>-->
                                      <span>R$ {{ money_format('%.2n', $produto->price) }}</span>
-                                        <a href="#" 
+                                        <a href="{{ route('cart.add', ['id'=>$produto->id]) }}" 
                                            class="btn btn-fefault cart">
                                             <i class="fa fa-shopping-cart"></i>
                                             Adicionar no Carrinho

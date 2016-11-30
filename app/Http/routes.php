@@ -16,7 +16,10 @@ Route::group(['prefix' => ''], function() {
     Route::get('categoria/{id}', ['as' => 'loja.categoria', 'uses' => 'LojaController@categoria']);
     Route::get('produto/{id}', ['as' => 'loja.produto', 'uses' => 'LojaController@produto']);
     Route::get('tag/{id}', ['as' => 'loja.tag', 'uses' => 'LojaController@tag']);
-    
+    Route::get('cart', ['as' => 'cart', 'uses' => 'CartController@index']);
+    Route::get('cart/add/{id}', ['as'=> 'cart.add', 'uses'=>'CartController@add']);
+    Route::get('cart/delete/{id}', ['as'=> 'cart.delete', 'uses'=>'CartController@delete']);
+    Route::post('cart/alterar/{id}', ['as'=>'cart.alterar', 'uses'=>'CartController@alterar']);
 });
 /****************************/
 //Route::get('/', 'LojaController@index');
