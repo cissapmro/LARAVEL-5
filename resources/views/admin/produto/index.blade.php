@@ -98,49 +98,6 @@
 </div>
 
      @endsection
-  <!--  @section("post-html")
-    
-        @include("admin.produto.edite")
-        @include("admin.produto.create")
-        @include("admin.produto.delete")
-        
-    @endsection
-    
-    @section("post-scripts")
-    <script type="text/javascript">
-        $('#table-list a#btnEditar').click(function(){
-            var idRegistro = $(this).data('id');
-            
-            $.get('/admin/products/' + idRegistro, function(produto){
-                $('#id').val(produto.id);
-                $('#category').val(produto->category->id);
-                $('#name').val(produto.name);
-                $('#price').val(produto.price);
-                $('#description').val(produto.description);
-                $('#featured').val(produto.featured);
-                $('#recommend').val(produto.recommend);
-                $('#tags').val(produto.tags);
-                
-            });
-            
-            $('#modal-edit').modal('show');
-        });
-        $('#table-list a#btnDeletar').click(function(){
-            var idRegistro = $(this).data('id');
-            
-            $.get('admin/products/' + idRegistro, function(produto){
-               
-               var btnExcluir = document.getElementById('btnExcluir');
-               btnExcluir.setAttribute("href", "admin/products/deletarProduto/"+idRegistro);
-               $('#nome').html(produto.name);
-               $('#descrição').html(produto.description);
-                
-            });
-            
-            $('#modal-delete').modal('show');
-        });
-        
-    </script>
-    @endsection-->
+  
    
  

@@ -20,6 +20,8 @@ Route::group(['prefix' => ''], function() {
     Route::get('cart/add/{id}', ['as'=> 'cart.add', 'uses'=>'CartController@add']);
     Route::get('cart/delete/{id}', ['as'=> 'cart.delete', 'uses'=>'CartController@delete']);
     Route::post('cart/alterar/{id}', ['as'=>'cart.alterar', 'uses'=>'CartController@alterar']);
+    Route::get('checkout/placeOrder', ['as'=>'checkout.place', 'uses'=>'CheckoutController@place']);
+  
 });
 /****************************/
 //Route::get('/', 'LojaController@index');

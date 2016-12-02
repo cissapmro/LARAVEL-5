@@ -21,6 +21,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var string
      */
+    //Forçar o nome da tabela no banco
     protected $table = 'users';
 
     /**
@@ -36,4 +37,9 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+    
+    //Usuário pode ter várias ordens de serviço
+    public function orders(){
+        return $this->hasMany('CodeCommerce\Order');
+    }
 }

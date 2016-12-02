@@ -68,6 +68,7 @@ class CartController extends Controller
    // dd($produto);
      $cart->alterar($id, $produto->name, $produto->price, $input['qtd']);
      
+   
      Session()->set('cart', $cart);
      
      return redirect()->route('cart');
