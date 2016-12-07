@@ -33,6 +33,7 @@ Route::group(['prefix' => ''], function() {
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
+    'test' => 'TestController'
 ]);
 
 //Route::get('blog/{nome}', 'BlogController@index');
@@ -41,7 +42,7 @@ Route::controllers([
 //Route::pattern('id', '[0-9]+');
 
 //ROTAS AGRUPADAS - ADMIN//
-Route::group(['prefix'=>'admin', 'where'=> ['id'=> '[0-9]+']], function() {
+Route::group(['prefix'=>'admin', 'middleware'=>'auth', 'where'=> ['id'=> '[0-9]+']], function() {
 //Categoria 
 Route::group(['prefix'=>'categories'], function() {
 

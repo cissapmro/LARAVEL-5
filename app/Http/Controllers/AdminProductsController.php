@@ -19,6 +19,9 @@ class AdminProductsController extends Controller
     private $produto;
     
     public function __construct(Product $products){
+       
+        //Verifica se está logado, senão, direciona pra tela de login
+    //   $this->middleware('auth');
         $this->produto = $products;
     }
     public function index(){
