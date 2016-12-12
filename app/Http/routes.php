@@ -42,7 +42,7 @@ Route::controllers([
 //Route::pattern('id', '[0-9]+');
 
 //ROTAS AGRUPADAS - ADMIN//
-Route::group(['prefix'=>'admin', 'middleware'=>'auth', 'where'=> ['id'=> '[0-9]+']], function() {
+Route::group(['prefix'=>'admin', 'middleware'=>'auth_admin', 'where'=> ['id'=> '[0-9]+']], function() {
 //Categoria 
 Route::group(['prefix'=>'categories'], function() {
 

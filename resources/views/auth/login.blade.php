@@ -1,4 +1,4 @@
-@extends('template')
+@extends('loja.template')
 
 @section('content')
 <div class="container-fluid">
@@ -50,7 +50,9 @@
 								<div class="form-group">
 									<button type="submit" class="btn btn-primary">Login</button>
 									<a class="btn btn-link" href="{{ url('/password/email') }}">Esqueceu sua Senha?</a>
-									<a class="btn btn-link" href="{{ url('/auth/register') }}">Criar novo usuário</a>
+									<br />
+                                                                        <br />
+                                                                        <a class="btn btn-link" href="{{ url('/auth/register') }}">Criar novo usuário</a>
 								</div>
 							</div>
 						</div>
