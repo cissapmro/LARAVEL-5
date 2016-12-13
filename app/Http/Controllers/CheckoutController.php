@@ -46,8 +46,8 @@ class CheckoutController extends Controller
         
         }
         $cart->clear();
-        
-      return view('loja.checkout', compact('order'));
+      $categories = $this->categoria->all();
+      return view('loja.checkout', compact('order', 'categories'));
     }
         $categories = $this->categoria->all();
       //  dd($categoria);

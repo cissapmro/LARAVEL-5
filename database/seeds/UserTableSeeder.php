@@ -9,7 +9,7 @@ class UserTableSeeder extends Seeder {
     
     public function run(){
             
-        DB::table('users')->truncate();
+      //  DB::table('users')->truncate();
         
         //sem o uso do faker
      //   User::create([
@@ -24,7 +24,8 @@ class UserTableSeeder extends Seeder {
         factory('CodeCommerce\User')->create([
            'name'=> 'Cissa', 
            'email' => 'cissa.pmro@gmail.com',
-           'password' => Hash::make(123456)
+           'password' => Hash::make(123456),
+            'is_admin' => 1
         ]);
         factory('CodeCommerce\User', 2)->create();
       //  foreach(range(1,10) as $i){

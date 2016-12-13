@@ -5,14 +5,15 @@
 @stop
 
 @section('content')
-<div class="container">
+ <div class="col-sm-9 padding-right">
+ <div class="product-details">
     @if(isset($cart) == 'empty')
-    <h3>Carrinho de compras vazio!</h3>
-    
+    <div class="alert alert-danger">Carrinho de compras vazio!</div>
     @else
-    <h3>Pedido realizado com sucesso!</h3>
-    <p>O pedido #{{ $order->id }} foi realizado com sucesso!</p>
+    <div class="alert alert-info">Pedido realizado com sucesso!</div>
+    <p O pedido #{{ $order->id }} foi realizado com sucesso!</p>
     @endif
 </div>
+ </div>
 @stop
 

@@ -2,9 +2,8 @@
 <div class="col-sm-3">
     <div class="left-sidebar">
         <h2>Categorias</h2>
-        <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                <!--?php dd($categories);?>-->
-                <!--?php print($categories);?>-->
+        <div class="panel-group category-products" id="accordian">
+                
                 @foreach($categories as $categoria)
                
                 <div class="panel panel-default">
@@ -13,7 +12,7 @@
                     </div>
                 </div>
                 @endforeach       
-        </div><!--/category-products-->
+        </div>
     </div>
 </div>
 
