@@ -10,8 +10,10 @@
     @if(isset($cart) == 'empty')
     <div class="alert alert-danger">Carrinho de compras vazio!</div>
     @else
-    <div class="alert alert-info">Pedido realizado com sucesso!</div>
-    <p O pedido #{{ $order->id }} foi realizado com sucesso!</p>
+    <div class="alert alert-info">
+        O pedido <b>{{ $order->id }}</b> foi realizado com sucesso!
+    </div>
+    
     @endif
 </div>
  </div>

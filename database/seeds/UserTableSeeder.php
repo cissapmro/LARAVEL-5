@@ -25,7 +25,13 @@ class UserTableSeeder extends Seeder {
            'name'=> 'Cissa', 
            'email' => 'cissa.pmro@gmail.com',
            'password' => Hash::make(123456),
-            'is_admin' => 1
+            'is_admin' => 1,
+            'endereco' => 'Rua Santa Irene',
+            'numero' => '50',
+            'bairro' => 'Jardim Miramar',
+            'cidade' => 'Rio das Ostras',
+            'estado' => 'RJ'
+            
         ]);
         factory('CodeCommerce\User', 2)->create();
       //  foreach(range(1,10) as $i){

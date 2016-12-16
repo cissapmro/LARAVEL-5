@@ -21,7 +21,7 @@ class CheckoutController extends Controller
     public function __construct(Order $orderModel, OrderItem $orderItem, Category $category){
         
        
-        $this->middleware('auth');
+       // $this->middleware('auth');
         $this->orderModel = $orderModel;
         $this->orderItem = $orderItem;
         $this->categoria = $category;
@@ -45,6 +45,7 @@ class CheckoutController extends Controller
             $order->items()->create(['product_id'=>$k, 'price'=>$item['price'], 'qtd'=>$item['qtd']]);
         
         }
+        //limpar o carrinho
         $cart->clear();
       $categories = $this->categoria->all();
       return view('loja.checkout', compact('order', 'categories'));

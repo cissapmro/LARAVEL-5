@@ -20,16 +20,18 @@ Route::group(['prefix' => ''], function() {
     Route::get('cart/add/{id}', ['as'=> 'cart.add', 'uses'=>'CartController@add']);
     Route::get('cart/delete/{id}', ['as'=> 'cart.delete', 'uses'=>'CartController@delete']);
     Route::post('cart/alterar/{id}', ['as'=>'cart.alterar', 'uses'=>'CartController@alterar']);
-    Route::get('checkout/placeOrder', ['as'=>'checkout.place', 'uses'=>'CheckoutController@place']);
-  
+    
 });
+/*TEM QUE ESTAR AUTENTICADO*/
+/*CHECKOUT*/
+Route::group(['middleware'=>'auth'], function(){
+    Route::get('checkout/placeOrder', ['as'=>'checkout.place', 'uses'=>'CheckoutController@place']);
+    Route::get('account/orders', ['as'=>'account.orders', 'uses'=>'AccountController@orders']);
+});  
 /****************************/
 //Route::get('/', 'LojaController@index');
 
 //Route::get('home', 'HomeController@index');
-
-
-
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
@@ -41,6 +43,7 @@ Route::controllers([
 //FORÇAR PARA QUE O PARÂMETRO ID SEJA NUMÉRICO//
 //Route::pattern('id', '[0-9]+');
 
+/*TEM QUE ESTAR AUTENTICADO*/
 //ROTAS AGRUPADAS - ADMIN//
 Route::group(['prefix'=>'admin', 'middleware'=>'auth_admin', 'where'=> ['id'=> '[0-9]+']], function() {
 //Categoria 
