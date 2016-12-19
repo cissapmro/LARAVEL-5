@@ -13,14 +13,14 @@ class AddEnderecoOnUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('endereco');
-            $table->unsignedInteger('numero');
-            $table->string('bairro');
-            $table->string('cep');
-            $table->string('cidade');
+            $table->string('endereco')->nullable();
+            $table->unsignedInteger('numero')->nullable();
+            $table->string('bairro')->nullable();
+            $table->string('cep')->nullable();
+            $table->string('cidade')->nullable();
             $table->enum('estado',["AC","AL","AP","AM","BA","CE","DF","ES","GO",
                                   "MA","MT","MS","MG","PA","PB","PR","PE","PI",
-                                  "RJ","RN","RS","RO","RR","SC","SP","SE","TO"]);       
+                                  "RJ","RN","RS","RO","RR","SC","SP","SE","TO"])->nullable();     
         });
     }
 
