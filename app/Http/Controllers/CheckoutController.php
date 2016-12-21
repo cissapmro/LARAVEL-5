@@ -48,10 +48,11 @@ class CheckoutController extends Controller
         //limpar o carrinho
         $cart->clear();
       $categories = $this->categoria->all();
+     
       return view('loja.checkout', compact('order', 'categories'));
     }
         $categories = $this->categoria->all();
-      //  dd($categoria);
+      
        
      return view('loja.checkout', ['cart'=>'empty', 'categories'=>$categories]);
     }

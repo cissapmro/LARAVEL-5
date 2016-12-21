@@ -12,6 +12,8 @@
 */
 /*********LOJA**************/
 Route::group(['prefix' => ''], function() {
+     Route::post('/home', 'LojaController@index');
+    Route::get('/home', 'LojaController@index');
     Route::get('/', ['as' => 'loja.index', 'uses' => 'LojaController@index']);
     Route::get('categoria/{id}', ['as' => 'loja.categoria', 'uses' => 'LojaController@categoria']);
     Route::get('produto/{id}', ['as' => 'loja.produto', 'uses' => 'LojaController@produto']);
@@ -31,6 +33,8 @@ Route::group(['middleware'=>'auth'], function(){
 /****************************/
 //Route::get('/', 'LojaController@index');
 
+//Route::get('admin/orders', 'OrdersController@index');
+
 //Route::get('home', 'HomeController@index');
 Route::controllers([
     'auth' => 'Auth\AuthController',
@@ -45,7 +49,19 @@ Route::controllers([
 
 /*TEM QUE ESTAR AUTENTICADO*/
 //ROTAS AGRUPADAS - ADMIN//
+
 Route::group(['prefix'=>'admin', 'middleware'=>'auth_admin', 'where'=> ['id'=> '[0-9]+']], function() {
+    
+//Orders
+ //Route::get('order', 'OrdersController@index');
+    Route::group(['prefix'=>'orders'],function() {
+        
+    Route::get('index',['as'=>'admin.orders.index', 'uses'=>'OrdersController@index']);
+    Route::get('editar/{id}', ['as'=>'admin.orders.editarStatus','uses'=>'OrdersController@editar']);
+    Route::put('update/{id}', ['as'=>'admin.orders.updateStatus','uses'=>'OrdersController@update']);
+    
+    });
+       
 //Categoria 
 Route::group(['prefix'=>'categories'], function() {
 
@@ -56,6 +72,8 @@ Route::group(['prefix'=>'categories'], function() {
     Route::get('editar/{id}', ['as'=>'admin.categoria.editar', 'uses'=>'AdminCategoriesController@editar']); //deletar no banco
     Route::post('update/{id}', ['as'=>'admin.categoria.update', 'uses'=>'AdminCategoriesController@update']); //alterar no banco
     Route::post('tag/{id}', ['as'=>'admin.tag.salvarTag', 'uses'=>'AdminCategoriesController@salvarTag']);
+   
+     
 });
 //Produto
 Route::group(['prefix'=>'products'], function() {   

@@ -51,31 +51,31 @@
                                                 <div class="form-group">
 							<label class="col-md-4 control-label">Endereço:</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" name="endereco" value="{{'endereco'}}">
+								<input type="text" class="form-control" name="endereco" value="{{ old('endereco') }}">
 							</div>
 						</div>
                                                 <div class="form-group">
 							<label class="col-md-4 control-label">Numero:</label>
 							<div class="col-md-2">
-								<input type="text" class="form-control" name="numero" value="{{'numero'}}">
+								<input type="text" class="form-control" name="numero" value="{{ old('numero') }}">
 							</div>
 						</div>    
                                                 <div class="form-group">
 							<label class="col-md-4 control-label">Bairro:</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" name="bairro" value="{{'bairro'}}">
+								<input type="text" class="form-control" name="bairro" value="{{ old('bairro') }}">
 							</div>
 						</div>  
                                                  <div class="form-group">
 							<label class="col-md-4 control-label">Cep:</label>
 							<div class="col-md-3">
-								<input type="text" class="form-control" name="cep" value="{{'cep'}}">
+								<input type="text" class="form-control" name="cep" value="{{ old('cep') }}">
 							</div>
 						</div> 
                                                 <div class="form-group">
 							<label class="col-md-4 control-label">Cidade:</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" name="cidade" value="{{'cidade'}}">
+								<input type="text" class="form-control" name="cidade" value="{{ old('cidade') }}">
 							</div>
 						</div> 
                                                

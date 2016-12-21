@@ -45,7 +45,13 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
-           
+            'is_admin' => 'numeric',
+            'endereco' => 'required',
+            'numero' => 'required|numeric',
+            'bairro' =>  'required',
+            'cep' => 'required',
+            'cidade' => 'required',
+            'estado' => 'required',
             
         ]);
     }
@@ -62,6 +68,13 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+             'is_admin' => 0,
+            'endereco' => $data['endereco'],
+            'numero' => $data['numero'],
+            'bairro' =>  $data['bairro'],
+            'cep' => $data['cep'],
+            'cidade' => $data['cidade'],
+            'estado' => $data['estado'],
              
             
         ]);

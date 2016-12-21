@@ -14,7 +14,8 @@ class AccountController extends Controller
         
     }
     public function orders(){
-        $orders = Auth::user()->orders()->paginate(5);
+       
+       $orders = Auth::user()->orders()->paginate(10);
       //  dd($orders);
         return view('loja.orders', compact('orders'));
     }

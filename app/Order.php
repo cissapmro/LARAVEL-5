@@ -21,4 +21,16 @@ class Order extends Model
     public function user(){
         return $this->belongsTo('CodeCommerce\User');
     }
+   // public function setNomeStatusAttribute($value){
+   public function getNomeStatusAttribute(){
+       if($this->status == 0){
+           return "Pagamento Pendente";
+       }
+       else
+           return "Pagamento Realizado";
+       
+   }
+      
+    // $this->attributes['status'] = strtolower($value);
+    
 }
