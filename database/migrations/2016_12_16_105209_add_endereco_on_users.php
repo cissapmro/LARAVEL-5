@@ -37,9 +37,7 @@ class AddEnderecoOnUsers extends Migration
                  $table->dropColumn('bairro');
                    $table->dropColumn('cep');
                     $table->dropColumn('cidade');
-                     $table->dropColumn('estado',["AC","AL","AP","AM","BA","CE","DF","ES","GO",
-                                  "MA","MT","MS","MG","PA","PB","PR","PE","PI",
-                                  "RJ","RN","RS","RO","RR","SC","SP","SE","TO"]);
+                     $table->dropColumn('estado');
         });
     }
 }

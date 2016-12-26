@@ -15,7 +15,8 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+   'driver' => env('MAIL_DRIVER', 'smtp'),
+  //  'driver' => env('MAIL_DRIVER'),
 
     /*
     |--------------------------------------------------------------------------
@@ -28,8 +29,8 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-
+  /*  'host' => env('MAIL_HOST', 'smtp.mailgun.org'),*/
+    'host' => env('MAIL_HOST'),
     /*
     |--------------------------------------------------------------------------
     | SMTP Host Port
@@ -54,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'cissa.pmro@gmail.com', 'name' => 'Testando envio de email'],
 
     /*
     |--------------------------------------------------------------------------

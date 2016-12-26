@@ -11,6 +11,16 @@
 |
 */
 /*********LOJA**************/
+
+//EVENTOS//
+//Dispara todos os listeners
+//Route:get('evento', function(){
+ //   \Illuminate\Support\Facades\Event::fire(new \CodeCommerce\Events\CheckoutEvent());
+//event(new \CodeCommerce\Events\CheckoutEvent());  
+//});
+//
+//FIM EVENTOS//
+
 Route::group(['prefix' => ''], function() {
      Route::post('/home', 'LojaController@index');
     Route::get('/home', 'LojaController@index');

@@ -11,6 +11,7 @@ use CodeCommerce\OrderItem;
 use CodeCommerce\Category;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use CodeCommerce\Events\CheckoutEvent;
 
 class CheckoutController extends Controller
 {
@@ -46,14 +47,17 @@ class CheckoutController extends Controller
         
         }
         //limpar o carrinho
-        $cart->clear();
+      $cart->clear();
+      
+      event(new CheckoutEvent(Auth::user(), $order));
+     
+     // dd($order);
       $categories = $this->categoria->all();
      
       return view('loja.checkout', compact('order', 'categories'));
     }
         $categories = $this->categoria->all();
-      
-       
+     
      return view('loja.checkout', ['cart'=>'empty', 'categories'=>$categories]);
     }
     

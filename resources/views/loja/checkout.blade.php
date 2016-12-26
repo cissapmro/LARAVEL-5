@@ -1,3 +1,4 @@
+
 @extends('loja.template')
 
 @section('_categoria')
@@ -11,7 +12,9 @@
     <div class="alert alert-danger">Carrinho de compras vazio!</div>
     @else
     <div class="alert alert-info">
-        O pedido <b>{{ $order->id }}</b> foi realizado com sucesso!
+        <p> O pedido <b>{{ $order->id }}</b> foi realizado com sucesso!</p>
+        Você estará recebendo um email de confirmação.
+        
     </div>
     
     @endif
