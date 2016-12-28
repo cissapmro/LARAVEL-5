@@ -20,6 +20,7 @@
 //});
 //
 //FIM EVENTOS//
+Route:get('test', 'CheckoutController@test');
 
 Route::group(['prefix' => ''], function() {
      Route::post('/home', 'LojaController@index');
